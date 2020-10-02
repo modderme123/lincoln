@@ -1,0 +1,19 @@
+{
+  "name": "lincoln",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node build.js",
+    "build": "node build.js production"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@barba/core": "^2.9.7",
+    "chokidar": "^3.4.2",
+    "esbuild": "^0.7.8",
+    "fs-extra": "^9.0.1",
+    "servor": "^4.0.2"
+  }
+}

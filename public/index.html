@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lato:wght@300&display=swap" rel="stylesheet" />
+    <title>Lincoln Culture</title>
+    <style>
+      body {
+        background: black;
+        color: white;
+        font-family: Lato;
+        font-size: 20px;
+        overflow-x: hidden;
+        width: 100vw;
+        font-weight: 200;
+      }
+      ::selection {
+        background: #ffb7b7;
+      }
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 3em;
+        text-align: center;
+      }
+      #c {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+      #selection {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 32px;
+        position: fixed;
+        left: 5em;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #selection div {
+        transition: all 1s;
+      }
+      .circle {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #aaa;
+        border-radius: 100%;
+        width: 32px;
+        height: 32px;
+        border: 1px dashed white;
+        cursor: pointer;
+      }
+      .line {
+        position: relative;
+        height: 19px;
+        width: 0;
+        border-width: 0 0 0 1px;
+        border-left: 1px dashed white;
+      }
+      .circle:before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        border: 1px solid rgba(255, 255, 255, 0);
+        transition: border 0.5s;
+      }
+      .selected.circle:before {
+        border: 1px solid rgba(255, 255, 255, 1);
+      }
+      .active.circle:after {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        border: 1px solid #555;
+        transition: border 0.5s;
+      }
+      .line:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        border-left: 1px solid rgba(255, 255, 255, 0);
+        transition: border 0.5s;
+      }
+      .selected.line:before {
+        border-left: 1px solid rgba(255, 255, 255, 1);
+      }
+      section {
+        width: 900px;
+        position: absolute;
+        right: 50%;
+        top: 0;
+        margin-top: calc(20vh);
+        transform: translate(50%, 0);
+        opacity: 0;
+        transition: opacity 0.5s;
+        display: none;
+        transform-origin: top center;
+      }
+      section.active {
+        display: block;
+        opacity: 1;
+        z-index: 5;
+        transition: all 0.5s;
+      }
+      section.right {
+        display: block;
+        opacity: 0.5;
+        cursor: pointer;
+        right: 0;
+        transform: translate(50%, 0%) scale(0.2);
+        animation: fadein 1s;
+      }
+      section.right:hover {
+        opacity: 1;
+      }
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0.5;
+        }
+      }
+      .split {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .split img {
+        flex: 35;
+        max-width: 35%;
+        object-fit: contain;
+        z-index: -1;
+      }
+      .split div {
+        flex: 65;
+        width: 65%;
+      }
+      .split p {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      a {
+        color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <div id="selection">
+      <div class="circle selected active">1</div>
+      <div class="line"></div>
+      <div class="circle">2</div>
+      <div class="line"></div>
+      <div class="circle">3</div>
+      <div class="line"></div>
+      <div class="circle">4</div>
+      <div class="line"></div>
+      <div class="circle">5</div>
+    </div>
+    <section class="active">
+      <h1 data-move="0.025">Abraham Lincoln in<br />Pop Culture</h1>
+      <p style="text-align: center" data-move="0.01">
+        <q>Don't believe everything you read on the internet</q><br />
+        - Abraham Lincoln
+      </p>
+      <div class="split">
+        <img data-move="0.035" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Abraham_Lincoln_April_10_1865.jpg" />
+        <div data-move="0.015">
+          <p>
+            Abraham Lincoln was thoughtful, strong, kind, independent, and famously tall. These movie-star-like characteristics are what captured the
+            interest of filmmakers, novelists, and marketers, some of whose creations are shown in Section 3. Lincoln was a self-made man. He forged a
+            path independent of his fathers, at a time when that was very uncommon, leading him to become a politician instead of the farmer that his
+            father was.
+          </p>
+          <p>
+            His nickname “Honest Abe” was given to him while working as a store clerk in New Salem, IIIーaccording to one popular story, after the
+            store closed for the night, Lincoln walked three miles to give a customer a few pennies after he accidentally shortchanged him. This
+            nickname only persisted as he entered law, as his colleagues ranked him top of his profession in the state because of their confidence
+            that he never told a lie.
+          </p>
+        </div>
+      </div>
+      <p data-move="0.01">
+        Most beliefs about Lincoln have only grown through time, and “Honest Abe” is no exception. However, from accounts of his friends and family,
+        it seems clear that Abraham Lincoln believed that honesty and integrity were core to a man's values, and although law was seen as largely
+        dishonest, Lincoln was quoted saying, “Resolve to be honest at all events; and if, in your own judgment, you can not be an honest lawyer,
+        resolve to be honest without being a lawyer. Choose some other occupation.”
+      </p>
+    </section>
+    <section class="right">
+      <h1 data-move="0.025">Abraham Lincoln in<br />Movies and Books</h1>
+      <p data-move="0.01">
+        Lincoln has been listed in an immense number of movies, TV shows, novels, and advertisements during and since his deathーLincoln, as of 2012,
+        had appeared in 297 different films and TV shows since 1911, with an even more impressive 15,000 books written about him, a number second to
+        only Jesus, according to historian Paul Tetreault. There is a common thread among these portrayals, though: depictions of a hero, one who is
+        both universally revered and relatable. Many advertisements also make use of his famous moniker, “Honest Abe,” to put integrity behind their
+        products. Here, we’ve compiled some portrayals of Lincoln to illustrate these points.
+      </p>
+      <div class="split">
+        <img
+          data-move="0.035"
+          src="https://img.newspapers.com/img/img?id=309282411&width=557&height=688&crop=714_304_1152_1451&rotation=0&brightness=0&contrast=0&invert=0&ts=1601569170&h=7ab95187a553baf01e2ee7745bd3efb5"
+        />
+        <div data-move="0.015">
+          <p>
+            While this newspaper obituary seems very unrelated to presidential legacy, the far-reaching influence of a presidential nickname is shown
+            here. For almost every other president, their name would be used rather plainly, but Lincoln is described with a word with such a positive
+            connotation, part of a widely accepted nickname. If you compare this nickname to that of other presidents, he holds some of the most
+            positive ones. This source displays the influence and spread of this favorable nickname.
+          </p>
+        </div>
+      </div>
+      <div class="split">
+        <img data-move="0.035" src="song1.jpeg" />
+        <div data-move="0.015">
+          <p>
+            This triumphant song lists Lincoln’s virtuesー”honest, frank, and true.” Although the presence of this song may be an older custom,
+            presidential election songs, perhaps, I can’t recall the last time I heard of a song like this for a president. (Imagine an official Trump
+            campaign song.)
+          </p>
+          <p>
+            This song notes another of Lincoln’s exceptional qualities, that he is at once the “white man’s friend” and also “does not want slavery to
+            extend.” This is not equivalent to, but is certainly reminiscent of the bipartisan appeal of Lincoln, who seems to capture very opposite
+            audiences, especially in more modern times.
+          </p>
+          <p>
+            While seemingly exaggeratory, I think this song, like the previous source, highlights the omnipotence and appeal of Lincoln very well.
+          </p>
+        </div>
+      </div>
+      <div class="split">
+        <img data-move="0.035" src="songster.png" />
+        <div data-move="0.015">
+          <p>
+            This song, unlike the previous, seems to focus on Lincoln’s origin and toil, almost to empathize with the listeners. In this way, he is
+            both revered and relatable. Lincoln is put in the same boat as liberty, almost a campaign tactic. However, the near-biblical imagery of
+            his fight against the “Slavocrat’s giant” seems to back the claims about Lincoln. It further emphasizes the good in Lincoln, and is almost
+            a rallying cry.
+          </p>
+        </div>
+      </div>
+      <div data-move="0.01">
+        <p>
+          Lincoln (portrayals of Lincoln) appeared in 297 different films and TV shows from 1911 to 2012, more than Batman, Sherlock Holmes, and James
+          Bond! This is another testament to his appeal, as well as the broad range of interpretation of this president. He appears as both a cool
+          authority figure (<a href="https://youtu.be/S67sDHdhpio">Bill & Ted</a>) as well as a vampire hunter (Abraham Lincoln: Vampire Hunter), or
+          famed statesman (Lincoln). Much as with the songs, Lincoln’s level of cinematic portrayal is unique: when was the last time you saw a zombie
+          apocalypse movie starring, say, JFK?
+        </p>
+        <p>
+          It is thought that Lincoln’s real voice was in fact much higher than his generally low and booming movie portrayal. This is perhaps yet
+          another symbol of how mainstream Lincoln has become, and how pop culture has impacted our perception of him.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h1>Abraham Lincoln in Advertising</h1>
+      <p>
+        Lincoln Logs are now marketed as representative of Abraham Lincoln, although the original history is not clear. Lincoln Logs were the property
+        of Knex, who described them as stemming from Lincoln’s log cabin: “The product is named after Abraham Lincoln, the President who began his
+        celebrated life in a log cabin in Kentucky”. The logs were originally inspired by a house in Japan. The blocks were a success because they
+        were a lot more stable, and had a much more appealing title than one of their competitors: Froebel blocks.
+      </p>
+      <img src="abe sale.png" width="100%" />
+      <img src="honest.png" width="100%" />
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem molestias deleniti ea nihil dignissimos consequatur, quos inventore aut
+        cum iusto ipsa id praesentium a, officia impedit quasi dolore dolorem sint!
+      </p>
+    </section>
+    <section>
+      <h1>Credits and Sources</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem molestias deleniti ea nihil dignissimos consequatur, quos inventore aut
+        cum iusto ipsa id praesentium a, officia impedit quasi dolore dolorem sint!
+      </p>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
