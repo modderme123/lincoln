@@ -10,7 +10,7 @@
         background: black;
         color: white;
         font-family: Lato;
-        font-size: 20px;
+        font-size: 19px;
         overflow-x: hidden;
         width: 100vw;
         font-weight: 200;
@@ -20,8 +20,9 @@
       }
       h1 {
         font-family: "Playfair Display", serif;
-        font-size: 3em;
+        font-size: 4em;
         text-align: center;
+        margin-top: 0;
       }
       #c {
         width: 100vw;
@@ -36,9 +37,9 @@
         flex-direction: column;
         width: 32px;
         position: fixed;
-        left: 5em;
+        left: 40px;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(0, -50%);
       }
       #selection div {
         transition: all 1s;
@@ -100,11 +101,10 @@
         border-left: 1px solid rgba(255, 255, 255, 1);
       }
       section {
-        width: 900px;
+        width: 800px;
         position: absolute;
         right: 50%;
-        top: 0;
-        margin-top: calc(20vh);
+        top: calc(20vh);
         transform: translate(50%, 0);
         opacity: 0;
         transition: opacity 0.5s;
@@ -122,6 +122,7 @@
         opacity: 0.5;
         cursor: pointer;
         right: 0;
+        top: calc(20vh + 80px);
         transform: translate(50%, 0%) scale(0.2);
         animation: fadein 1s;
       }
@@ -141,21 +142,25 @@
         flex-direction: row;
         align-items: center;
       }
-      .split img {
+      .split > *:first-child {
         flex: 35;
-        max-width: 35%;
+        width: 35%;
         object-fit: contain;
-        z-index: -1;
+        z-index: 1;
       }
-      .split div {
+      .split > *:last-child {
         flex: 65;
         width: 65%;
+        z-index: 2;
       }
       .split p {
         background-color: rgba(0, 0, 0, 0.8);
       }
       a {
         color: lightblue;
+      }
+      iframe {
+        border: 0px;
       }
     </style>
   </head>
@@ -169,13 +174,11 @@
       <div class="circle">3</div>
       <div class="line"></div>
       <div class="circle">4</div>
-      <div class="line"></div>
-      <div class="circle">5</div>
     </div>
     <section class="active">
       <h1 data-move="0.025">Abraham Lincoln in<br />Pop Culture</h1>
       <p style="text-align: center" data-move="0.01">
-        <q>Don't believe everything you read on the internet</q><br />
+        <span>“Don't believe everything you read on the internet”</span><br />
         - Abraham Lincoln
       </p>
       <div class="split">
@@ -183,33 +186,59 @@
         <div data-move="0.015">
           <p>
             Abraham Lincoln was thoughtful, strong, kind, independent, and famously tall. These movie-star-like characteristics are what captured the
-            interest of filmmakers, novelists, and marketers, some of whose creations are shown in Section 3. Lincoln was a self-made man. He forged a
-            path independent of his fathers, at a time when that was very uncommon, leading him to become a politician instead of the farmer that his
-            father was.
+            interest of filmmakers, novelists, and marketers, some of whose creations are shown in Section 3. Lincoln was a self-made man, whose
+            nickname “Honest Abe,” a nickname inspired by his behavior which only persisted as he grew older.
           </p>
           <p>
-            His nickname “Honest Abe” was given to him while working as a store clerk in New Salem, IIIーaccording to one popular story, after the
-            store closed for the night, Lincoln walked three miles to give a customer a few pennies after he accidentally shortchanged him. This
-            nickname only persisted as he entered law, as his colleagues ranked him top of his profession in the state because of their confidence
-            that he never told a lie.
+            It seems clear, drawing from historical records and documentation, that Abraham Lincoln believed honesty and integrity to be core to a
+            man's values, and although law, one of Lincoln’s earlier professions, was seen as largely dishonest, Lincoln was quoted saying, “Resolve
+            to be honest at all events; and if, in your own judgment, you can not be an honest lawyer, resolve to be honest without being a lawyer.
+            Choose some other occupation.” This highlights his core values which later served him well as a president and in legacy, which we’ll be
+            focusing on here.
           </p>
         </div>
       </div>
-      <p data-move="0.01">
-        Most beliefs about Lincoln have only grown through time, and “Honest Abe” is no exception. However, from accounts of his friends and family,
-        it seems clear that Abraham Lincoln believed that honesty and integrity were core to a man's values, and although law was seen as largely
-        dishonest, Lincoln was quoted saying, “Resolve to be honest at all events; and if, in your own judgment, you can not be an honest lawyer,
-        resolve to be honest without being a lawyer. Choose some other occupation.”
-      </p>
     </section>
     <section class="right">
+      <h1 data-move="0.025">Abraham Lincoln in Advertising</h1>
+      <p data-move="0.015">
+        One of the largest usages of Lincoln is in advertising, as would be expectedーa popular, wise, and trusted authority figure is one of the best
+        ways to market a product. Here are some notable examples:
+      </p>
+      <div class="split">
+        <iframe data-move="0.035" src="https://www.youtube.com/embed/wdpOIaGnzvA"></iframe>
+        <p data-move="0.015">
+          In a commercial for a sleep aid, Rozerem, Lincoln appears as a wise and knowledgeable figure at the table, sitting with the person suffering
+          from insomnia and a talking beaver. He appears kind and understanding, while still engaging in conversation as if an equal. This is a
+          clear-cut reason why Lincoln is so commonly used in advertisingーpeople believe in what he says, and empathize with him.
+        </p>
+      </div>
+      <div class="split">
+        <p data-move="0.015" style="width: 65%; flex: 65">
+          Lincoln Logs are now marketed as representative of Abraham Lincoln, although the original history is not clear. Lincoln Logs were the
+          property of Knex, who named them after Lincoln, “who began his celebrated life in a log cabin in Kentucky.” The logs were a success because
+          they were a lot more stable (in terms of construction), and had an appealing title.
+        </p>
+
+        <img data-move="0.035" style="width: 35%; flex: 35" src="https://upload.wikimedia.org/wikipedia/commons/d/d8/US1351086-Figure_1.png" />
+      </div>
+      <p data-move="0.015">
+        The “Honest Abe” deals used for marketing use Lincoln as synonymous with product integrity. This not only shows how Lincoln has impacted pop
+        culture, but also how pop culture has impacted himーthat a deal would be named after him reinforces the idea of his being honest and
+        accountable.
+      </p>
+      <div class="split">
+        <img data-move="0.025" src="honest.png" style="width: 50%; max-width: 50%; flex: 50" />
+        <img data-move="0.025" src="abe sale.png" style="width: 50%; flex: 50" />
+      </div>
+    </section>
+    <section>
       <h1 data-move="0.025">Abraham Lincoln in<br />Movies and Books</h1>
       <p data-move="0.01">
-        Lincoln has been listed in an immense number of movies, TV shows, novels, and advertisements during and since his deathーLincoln, as of 2012,
-        had appeared in 297 different films and TV shows since 1911, with an even more impressive 15,000 books written about him, a number second to
-        only Jesus, according to historian Paul Tetreault. There is a common thread among these portrayals, though: depictions of a hero, one who is
-        both universally revered and relatable. Many advertisements also make use of his famous moniker, “Honest Abe,” to put integrity behind their
-        products. Here, we’ve compiled some portrayals of Lincoln to illustrate these points.
+        Lincoln has been listed in an immense number of movies, TV shows, novels, and advertisements during and since his death, with an impressive
+        15,000 books written about him, a number second to only Jesus, according to historian Paul Tetreault. There is a common thread among these
+        portrayals, though: depictions of a hero, one who is both universally revered and relatable. Many advertisements also make use of his famous
+        moniker, “Honest Abe,” to put integrity behind their products. Here, we’ve compiled some portrayals of Lincoln to illustrate these points.
       </p>
       <div class="split">
         <img
@@ -220,28 +249,22 @@
           <p>
             While this newspaper obituary seems very unrelated to presidential legacy, the far-reaching influence of a presidential nickname is shown
             here. For almost every other president, their name would be used rather plainly, but Lincoln is described with a word with such a positive
-            connotation, part of a widely accepted nickname. If you compare this nickname to that of other presidents, he holds some of the most
-            positive ones. This source displays the influence and spread of this favorable nickname.
+            connotation, part of a widely accepted nickname.
           </p>
         </div>
       </div>
       <div class="split">
-        <img data-move="0.035" src="song1.jpeg" />
-        <div data-move="0.015">
+        <div data-move="0.015" style="width: 65%; flex: 65">
           <p>
             This triumphant song lists Lincoln’s virtuesー”honest, frank, and true.” Although the presence of this song may be an older custom,
             presidential election songs, perhaps, I can’t recall the last time I heard of a song like this for a president. (Imagine an official Trump
             campaign song.)
           </p>
           <p>
-            This song notes another of Lincoln’s exceptional qualities, that he is at once the “white man’s friend” and also “does not want slavery to
-            extend.” This is not equivalent to, but is certainly reminiscent of the bipartisan appeal of Lincoln, who seems to capture very opposite
-            audiences, especially in more modern times.
-          </p>
-          <p>
             While seemingly exaggeratory, I think this song, like the previous source, highlights the omnipotence and appeal of Lincoln very well.
           </p>
         </div>
+        <img data-move="0.035" style="width: 35%; flex: 35" src="song1.jpeg" />
       </div>
       <div class="split">
         <img data-move="0.035" src="songster.png" />
@@ -269,25 +292,15 @@
       </div>
     </section>
     <section>
-      <h1>Abraham Lincoln in Advertising</h1>
-      <p>
-        Lincoln Logs are now marketed as representative of Abraham Lincoln, although the original history is not clear. Lincoln Logs were the property
-        of Knex, who described them as stemming from Lincoln’s log cabin: “The product is named after Abraham Lincoln, the President who began his
-        celebrated life in a log cabin in Kentucky”. The logs were originally inspired by a house in Japan. The blocks were a success because they
-        were a lot more stable, and had a much more appealing title than one of their competitors: Froebel blocks.
+      <h1 data-move="0.02">Conclusion, Credits, and Sources</h1>
+      <p data-move="0.05">
+        What we've found through looking at Lincoln's portrayal through history is that Lincoln's early actions and morals shaped his life, and his
+        great deeds have become greater through advertising and pop culture.
       </p>
-      <img src="abe sale.png" width="100%" />
-      <img src="honest.png" width="100%" />
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem molestias deleniti ea nihil dignissimos consequatur, quos inventore aut
-        cum iusto ipsa id praesentium a, officia impedit quasi dolore dolorem sint!
-      </p>
-    </section>
-    <section>
-      <h1>Credits and Sources</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem molestias deleniti ea nihil dignissimos consequatur, quos inventore aut
-        cum iusto ipsa id praesentium a, officia impedit quasi dolore dolorem sint!
+      <p data-move="0.05">
+        Sources:<br />
+        <a href="https://www.newspapers.com/image/92968328/?terms=honest%20abe&match=1">newspapers.com</a><br />
+        <a href="https://archive.org/details/honestabestudyin00roth2">archive.org</a>
       </p>
     </section>
     <script src="script.js"></script>
