@@ -153,6 +153,17 @@
         width: 65%;
         z-index: 2;
       }
+      .split > .swap:last-child {
+        flex: 35;
+        width: 35%;
+        object-fit: contain;
+        z-index: 1;
+      }
+      .split > .swap:first-child {
+        flex: 65;
+        width: 65%;
+        z-index: 2;
+      }
       .split p {
         background-color: rgba(0, 0, 0, 0.8);
       }
@@ -177,7 +188,7 @@
     </div>
     <section class="active">
       <h1 data-move="0.025">Abraham Lincoln in<br />Pop Culture</h1>
-      <p style="text-align: center" data-move="0.01">
+      <p style="text-align: center; font-size: 24px" data-move="0.01">
         <span>“Don't believe everything you read on the internet”</span><br />
         - Abraham Lincoln
       </p>
@@ -201,6 +212,10 @@
     </section>
     <section class="right">
       <h1 data-move="0.025">Abraham Lincoln in Advertising</h1>
+      <p data-move="0.01" style="text-align: center; font-size: 24px">
+        <span>"Everyone wants Lincoln on their side"</span><br />
+        - Richard Norton Smith, historian
+      </p>
       <p data-move="0.015">
         One of the largest usages of Lincoln is in advertising, as would be expectedーa popular, wise, and trusted authority figure is one of the best
         ways to market a product. Here are some notable examples:
@@ -214,13 +229,13 @@
         </p>
       </div>
       <div class="split">
-        <p data-move="0.015" style="width: 65%; flex: 65">
+        <p data-move="0.015" class="swap">
           Lincoln Logs are now marketed as representative of Abraham Lincoln, although the original history is not clear. Lincoln Logs were the
           property of Knex, who named them after Lincoln, “who began his celebrated life in a log cabin in Kentucky.” The logs were a success because
           they were a lot more stable (in terms of construction), and had an appealing title.
         </p>
 
-        <img data-move="0.035" style="width: 35%; flex: 35" src="https://upload.wikimedia.org/wikipedia/commons/d/d8/US1351086-Figure_1.png" />
+        <img data-move="0.035" class="swap" src="https://upload.wikimedia.org/wikipedia/commons/d/d8/US1351086-Figure_1.png" />
       </div>
       <p data-move="0.015">
         The “Honest Abe” deals used for marketing use Lincoln as synonymous with product integrity. This not only shows how Lincoln has impacted pop
@@ -254,7 +269,7 @@
         </div>
       </div>
       <div class="split">
-        <div data-move="0.015" style="width: 65%; flex: 65">
+        <div data-move="0.015" class="swap">
           <p>
             This triumphant song lists Lincoln’s virtuesー”honest, frank, and true.” Although the presence of this song may be an older custom,
             presidential election songs, perhaps, I can’t recall the last time I heard of a song like this for a president. (Imagine an official Trump
@@ -264,7 +279,7 @@
             While seemingly exaggeratory, I think this song, like the previous source, highlights the omnipotence and appeal of Lincoln very well.
           </p>
         </div>
-        <img data-move="0.035" style="width: 35%; flex: 35" src="song1.jpeg" />
+        <img data-move="0.035" class="swap" src="song1.jpeg" />
       </div>
       <div class="split">
         <img data-move="0.035" src="songster.png" />
@@ -294,13 +309,27 @@
     <section>
       <h1 data-move="0.02">Conclusion, Credits, and Sources</h1>
       <p data-move="0.05">
-        What we've found through looking at Lincoln's portrayal through history is that Lincoln's early actions and morals shaped his life, and his
-        great deeds have become greater through advertising and pop culture.
+        Abraham Lincoln’s view in the public eye has evolved over time from a radical anti-slavery candidate for president to the most popular
+        president today. Over time, approval has steadily risen, with assisting quotes like "[e]veryone wants Lincoln on their side" Richard Norton
+        Smith, a presidential historian. To this end, many people and advertising firms have used Lincoln to proclaim a sense of honesty and fairness.
+        In that way, popular culture has likewise molded Lincoln into glory, and often fabricated truths. Lincoln's eternal positivity and pushing for
+        the emancipation of slaves cements him in popular culture as a figure of positivity and light. However during and before his presidency he was
+        not as popular, causing his appearances in popular culture to increase over time. To that end, he has appeared in many movies, more than any
+        other president alive or dead, used extensively in advertising even today, and has been consistently popular though the good and through the
+        bad. In light of all of this, we can see that Lincoln is a beacon of light and positivity, causing him to be used throughout modern media.
       </p>
       <p data-move="0.05">
         Sources:<br />
+        <a href="https://youtu.be/wdpOIaGnzvA">youtube.com</a><br />
+        <a href="https://archive.org/details/honestabestudyin00roth2">archive.org</a><br />
+        <a href="https://www.greatamericanhistory.net/honesty.htm">greatamericanhistory.net</a><br />
+        <a href="https://web.archive.org/web/20130730001843/http://www.knex.com/Lincoln-Logs/history.php">archive.org</a><br />
         <a href="https://www.newspapers.com/image/92968328/?terms=honest%20abe&match=1">newspapers.com</a><br />
-        <a href="https://archive.org/details/honestabestudyin00roth2">archive.org</a>
+        <a href="https://www.newspapers.com/clip/14047075/tune-about-honest-abethe/ ">newspapers.com</a><br />
+        <a href="https://archive.org/details/republicancampai00burl/page/8/mode/2up">archive.org</a><br />
+        <a href="https://www.theatlantic.com/entertainment/archive/2012/06/an-icon-divided-abraham-lincolns-dual-pop-culture-legacy/258828/"
+          >theatlantic.com</a
+        ><br />
       </p>
     </section>
     <script src="script.js"></script>
